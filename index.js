@@ -25,9 +25,10 @@ app.use(function (state, emitter) {
     state.tasks.push(newTask)
     emitter.emit('render')
   })
+  
 })
 
-app.route('/', require('./views/to-do'))
+app.route('/', require('./views/main'))
 app.route('/*', require('./views/404'))
 
 module.exports = app.mount('body')
