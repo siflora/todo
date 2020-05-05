@@ -18,7 +18,7 @@ function view (state, emit) {
     <input type=text id=task placeholder='add your tasks'/>
     <button onclick=${handleClick}> Add </button>
     <ol onchange=${done}>
-    ${state.tasks.map(task)}
+      ${state.tasks.map(task)}
     </ol>
   </body>
  `

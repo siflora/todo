@@ -11,7 +11,7 @@ module.exports = function (task) {
   // create html template
   return html`
   <li>
-    <p id=input>${input}</p>
+    <p id=${input}>${input}</p>
     <button onclick=${handleDone}>done</button>
   </li>
   `
@@ -19,6 +19,6 @@ module.exports = function (task) {
     checkTask = document.getElementById('input');
   
     return checkTask.style.visibility = 'hidden'
-}
-
   }
+
+}

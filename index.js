@@ -13,7 +13,7 @@ if (process.env.NODE_ENV !== 'production') {
 app.use(function (state, emitter) {
   // initialize state
   state.tasks = [
-    {type: 'task', id: 1, input:'get started'},
+    {type: 'task', id: 1, input: 'get started'},
     {type: 'task', id: 2, input: 'second try'}
   ]
 
