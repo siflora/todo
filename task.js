@@ -3,22 +3,22 @@ var html = require('choo/html')
 
 
 // export module
-module.exports = function (task) {
-  var type = task.type
-  var input = task.input
-  var checkTask = task.checkTask
+module.exports = function (task, index, emit) {
+  console.log(task)
+  const { input, type } = task
 
   // create html template
   return html`
-  <li>
-    <p id=${input}>${input}</p>
-    <button onclick=${handleDone}>done</button>
+  <li id=${index}>
+    <p class=${ type ? 'done' : 'task'}>${input}</p>
+    <button onclick=${handleDone}>${type ? 'undone' : 'done'}</button>
   </li>
   `
-  function handleDone () {
-    checkTask = document.getElementById('input');
+  function handleDone (e) {
+    console.log(e.target.parentElement.id)
+    emit('task:done', index)
   
-    return checkTask.style.visibility = 'hidden'
+    //return checkTask.style.visibility = 'hidden'
   }
 
 }

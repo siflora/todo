@@ -2,7 +2,7 @@ var html = require('choo/html')
 
 var TITLE = 'my-choo-app - main'
 
-var task = require('../task.js')
+var taskComp = require('../task.js')
 
 module.exports = view
 
@@ -18,7 +18,7 @@ function view (state, emit) {
     <input type=text id=task placeholder='add your tasks'/>
     <button onclick=${handleClick}> Add </button>
     <ol onchange=${done}>
-      ${state.tasks.map(task)}
+      ${state.tasks.map((task, index) => taskComp(task, index, emit))}
     </ol>
   </body>
  `
@@ -26,7 +26,7 @@ function view (state, emit) {
   function handleClick () {
     var input = document.getElementById('task').value;
 
-    emit('clicks:add',input)
+    emit('task:add', input)
   }
   
   function done () {
